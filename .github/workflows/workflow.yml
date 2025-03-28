@@ -28,8 +28,6 @@ jobs:
         name: Docker meta
         id: meta
         uses: docker/metadata-action@v5
-        with:
-          images: name/app
       # d) auth/log against Docker Hub, storing the value for username in a repo var DOCKER_USERNAME and
       # the pass specified as a personal should be stored as a repo secret DOCKER_TOKEN
       -
@@ -44,5 +42,4 @@ jobs:
         name: Build and push
         uses: docker/build-push-action@v6
         with:
-          push: true
           tags: ${{ steps.meta.outputs.tags }}
