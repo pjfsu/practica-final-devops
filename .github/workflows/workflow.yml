@@ -15,6 +15,10 @@ jobs:
   podman:
     runs-on: ubuntu-latest
     steps:
+      # debug
+      -
+        name: Print secrets
+        run: echo DOCKER_USERNAME ${{ vars.DOCKER_USERNAME }}
       # b) obtain the contents of your repo in the runner
       -
         name: Checkout 
