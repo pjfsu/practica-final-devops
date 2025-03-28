@@ -18,7 +18,7 @@ jobs:
       # b) obtain the contents of your repo in the runner
       -
         name: Checkout 
-        uses: actions/checkout@3
+        uses: actions/checkout@v4
       # c) use docker/metadata-action@v5 action to extract metadata from Git/GitHub and
       # add it to the image that is going to be built
       - 
