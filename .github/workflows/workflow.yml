@@ -17,7 +17,7 @@ jobs:
     steps:
       # debug
       - name: Print secrets
-        run: echo ${{ secrets.DOCKER_USER }}
+        run: echo ${{ vars.DOCKER_USER }}
       # b) obtain the contents of your repo in the runner
       -
         name: Checkout 
@@ -36,7 +36,7 @@ jobs:
         name: Login to Dockerhub
         uses: docker/login-action@v3
         with:
-          username: ${{ secrets.DOCKER_USERNAME }}
+          username: ${{ vars.DOCKER_USER }}
           password: ${{ secrets.DOCKER_TOKEN }}
       # e) build and push the image to Docker Hub
       # the image build should add the tags obtained in step c)
