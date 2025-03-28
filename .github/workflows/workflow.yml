@@ -6,7 +6,7 @@ on:
     branches:
       - main
       # debug
-      - container-cd
+      #- container-cd
   pull_request:
     branches:
       - main
