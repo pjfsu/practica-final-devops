@@ -1,3 +1,3 @@
 <header>
-# Practica final de DevoPSS
+# Practica final de DevOps
 </header>
