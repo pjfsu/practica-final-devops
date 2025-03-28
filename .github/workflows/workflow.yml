@@ -17,7 +17,7 @@ jobs:
     steps:
       # debug
       - name: Print secrets
-        run: echo DOCKER_USERNAME ${{ secrets.DOCKER_USERNAME }}
+        run: echo ${{ secrets.DOCKER_USER }}
       # b) obtain the contents of your repo in the runner
       -
         name: Checkout 
