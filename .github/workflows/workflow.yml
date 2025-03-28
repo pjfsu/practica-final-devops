@@ -18,7 +18,7 @@ jobs:
       # b) obtain the contents of your repo in the runner
       -
         name: Checkout 
-        uses: actions/checkout@4.2.2
+        uses: actions/checkout@3
       # c) use docker/metadata-action@v5 action to extract metadata from Git/GitHub and
       # add it to the image that is going to be built
       - 
@@ -26,7 +26,7 @@ jobs:
         id: meta
         uses: docker/metadata-action@v5
         with:
-          images: nginx/app
+          images: minha_imaxe/app
       # d) auth/log against Docker Hub, storing the value for username in a repo var DOCKER_USERNAME and
       # the pass specified as a personal should be stored as a repo secret DOCKER_TOKEN
       -
