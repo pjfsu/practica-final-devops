@@ -1,0 +1,43 @@
+name: traballofluxo
+# a) the workflow is triggered on push events to the main branch and
+# pull requests events
+on:
+  push:
+    branches:
+      - main
+  pull:
+    branches:
+      - main
+jobs:
+  # based on: https://github.com/docker/metadata-action
+  podman:
+    runs-on: ubuntu-latest
+    steps:
+      # b) obtain the contents of your repo in the runner
+      -
+        name: Checkout 
+        uses: actions/checkout@4.2.2
+      # c) use docker/metadata-action@v5 action to extract metadata from Git/GitHub and
+      # add it to the image that is going to be built
+      - 
+        name: Docker meta
+        id: meta
+        uses: docker/metadata-action@v5
+        with:
+          images: nginx/app
+      # d) auth/log against Docker Hub, storing the value for username in a repo var DOCKER_USERNAME and
+      # the pass specified as a personal should be stored as a repo secret DOCKER_TOKEN
+      -
+        name: Login to Dockerhub
+        uses: docker/login-action@v3
+        with:
+          username: ${{ vars.DOCKER_USERNAME }}
+          username: ${{ secrets.DOCKER_TOKEN }}
+      # e) build and push the image to Docker Hub
+      # the image build should add the tags obtained in step c)
+      -
+        name: Build and push
+        uses: docker/build-push-action@v6
+        with:
+          push: true
+          tags: ${{ steps.meta.outputs.tags }}
