@@ -16,7 +16,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       # debug
-      - run: echo DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
+      - name: Print secrets
+        run: echo DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
       # b) obtain the contents of your repo in the runner
       -
         name: Checkout 
