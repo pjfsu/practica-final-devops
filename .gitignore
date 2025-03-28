@@ -3,3 +3,6 @@
 ._*
 .Trashes
 Thumbs.db
+
+# vim tmp files
+*.swp
